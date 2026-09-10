@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>助盲跑用户协议</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+  :root { color-scheme: light dark; --fg:#1a1a1a; --bg:#fff; --muted:#4a4a4a; --line:#d4d4d4; --accent:#0b5fa5; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8e8; --bg:#141414; --muted:#b0b0b0; --line:#3a3a3a; --accent:#6db3f2; }
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0 auto; padding: 1.5rem 1.25rem 4rem; max-width: 44rem;
+    font: 1rem/1.75 -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
+    color: var(--fg); background: var(--bg); word-wrap: break-word;
+  }
+  h1 { font-size: 1.75rem; line-height: 1.35; margin: 0 0 1.5rem; }
+  h2 { font-size: 1.3rem; margin: 2.5rem 0 .75rem; padding-bottom: .3rem; border-bottom: 2px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.75rem 0 .5rem; }
+  a { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; display: block; overflow-x: auto; }
+  th, td { border: 1px solid var(--line); padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  th { background: color-mix(in srgb, var(--fg) 7%, transparent); }
+  blockquote { margin: 1rem 0; padding: .75rem 1rem; border-left: 4px solid var(--accent);
+               background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  code { font-size: .9em; padding: .1em .35em; border-radius: 3px;
+         background: color-mix(in srgb, var(--fg) 8%, transparent); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+  strong { font-weight: 600; }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">助盲跑用户协议</h1>
+</header>
+<h1 id="助盲跑用户协议">助盲跑用户协议</h1>
+<p><strong>版本</strong>：v1.0 <strong>生效日期</strong>：2026-09-10
+<strong>服务提供者</strong>：个人开发者</p>
+<hr />
+<h2 id="一协议的接受">一、协议的接受</h2>
+<p>在使用助盲跑（以下称"本应用"）前，请完整阅读本协议与《隐私政策》。
+<strong>点击"同意并开始使用"即表示你已阅读、理解并接受本协议全部内容。</strong>
+如果你不同意其中任何条款，请停止使用本应用。</p>
+<p>若你未满 18 周岁，请在监护人陪同下阅读并决定是否使用。</p>
+<hr />
+<h2 id="二本应用是什么不是什么">二、本应用是什么，不是什么</h2>
+<h3 id="21-是什么">2.1 是什么</h3>
+<p>本应用是一个<strong>信息撮合平台</strong>，为视障跑者与愿意提供陪跑协助的志愿者提供相互发现和联系的渠道。</p>
+<h3 id="22-red_circle-不是什么">2.2 🔴 不是什么</h3>
+<ul>
+<li><strong>本应用不是陪跑服务的提供者。</strong>
+实际的陪跑由志愿者本人提供，志愿者不是我们的员工、
+雇员或代理人，与我们之间不存在劳动或劳务关系。</li>
+<li><strong>本应用不是紧急救援服务。</strong> 详见第七条。</li>
+<li><strong>本应用不是医疗或健康服务。</strong>
+我们不提供任何医疗建议、健康评估或运动指导。</li>
+<li><strong>本应用不收取任何费用</strong>，也不向志愿者支付任何报酬。这是一项公益服务。</li>
+</ul>
+<hr />
+<h2 id="三账号">三、账号</h2>
+<ol type="1">
+<li>你需要用<strong>本人</strong>的手机号注册，一个手机号对应一个账号。</li>
+<li>你应当妥善保管手机和账号，<strong>通过你的账号发出的操作视为你本人的行为</strong>。</li>
+<li>你不得将账号转让、出借或与他人共用。</li>
+<li>你可以随时通过【设置 →
+删除账户】注销账号。注销后果详见《隐私政策》第六条。</li>
+<li>你在注册和使用中提供的信息应当<strong>真实、准确</strong>。提供虚假身份信息的，我们有权终止服务。</li>
+</ol>
+<hr />
+<h2 id="四志愿者的额外义务">四、志愿者的额外义务</h2>
+<p>选择成为志愿者，意味着你额外承诺：</p>
+<ol type="1">
+<li><strong>完成实名认证</strong>。这是保障视障用户安全的底线要求，不可豁免。
+认证方式可以是【身份证 + 人脸活体】或【身份证二要素 +
+人工审核】，两者等效。</li>
+<li><strong>你具备完成陪跑的身体条件</strong>，且在服务当时不处于疾病、饮酒、药物影响或过度疲劳状态。</li>
+<li><strong>你已了解视障人士陪跑的基本方法</strong>（如引导绳的使用、口头提示的时机与方式）。</li>
+<li><strong>接单后应当按约定到达并完成服务</strong>。确需取消的，应当尽早在应用内取消，
+让系统有时间重新派单 ——
+临时爽约对视障用户造成的困难远大于普通场景。</li>
+<li><strong>服务过程中以受助者的安全为最高优先</strong>。遇到路况风险、身体不适或任何异常，
+应当立即停止跑步并妥善安置对方。</li>
+<li><strong>不得利用服务过程谋取任何私利</strong>，包括但不限于索要财物、推销商品服务、
+建立超出服务范围的关系。</li>
+<li><strong>不得记录、传播、公开</strong>服务过程中获知的对方个人信息、身体状况或行踪。</li>
+</ol>
+<hr />
+<h2 id="五视障用户的义务">五、视障用户的义务</h2>
+<ol type="1">
+<li>如实说明你的<strong>视力状况与身体状况</strong>中影响同行安全的部分。</li>
+<li>如实填写起点、终点和期望时间。</li>
+<li>服务过程中<strong>听从志愿者关于安全的合理提示</strong>。</li>
+<li>尊重志愿者，不提出超出陪跑范围的要求。</li>
+<li>妥善填写<strong>紧急联系人</strong>，并<strong>事先告知对方</strong>你填写了其号码。</li>
+</ol>
+<hr />
+<h2 id="六双方共同的行为规范">六、双方共同的行为规范</h2>
+<p><strong>禁止</strong>以下行为，一经发现我们有权立即终止服务并封禁账号：</p>
+<ul>
+<li>骚扰、歧视、辱骂、威胁对方，或做出任何令对方不适的言行</li>
+<li>提供虚假身份信息，或冒用他人身份</li>
+<li>滥用紧急求助功能（虚假求助会挤占真实求助的响应资源）</li>
+<li>利用本应用从事任何违法活动</li>
+<li>以任何方式干扰、破坏本应用的正常运行</li>
+<li>未经对方同意，记录、传播或公开对方的个人信息、影像或行踪</li>
+</ul>
+<hr />
+<h2 id="七red_circle-紧急求助功能的性质与限制">七、🔴
+紧急求助功能的性质与限制</h2>
+<p><strong>本应用的"紧急求助"功能不是紧急救援服务，不能替代 120、110
+或任何官方急救渠道。</strong></p>
+<p>它的全部作用是：向你<strong>事先自行填写</strong>的紧急联系人发送一条短信，并通知平台客服人工跟进。</p>
+<p><strong>它可能失效</strong>，原因包括但不限于：手机没有信号、手机没电、短信通道故障、
+紧急联系人没有查看手机、紧急联系人号码填写有误。
+<strong>我们不保证送达，也不保证有人响应。</strong></p>
+<p><strong>遇到紧急情况，请首先拨打 120（急救）或 110（报警）。</strong>
+本应用界面中提供了直接拨打的入口。</p>
+<hr />
+<h2 id="八red_circle-责任限制">八、🔴 责任限制</h2>
+<p>请认真阅读本条。</p>
+<ol type="1">
+<li><p><strong>陪跑活动本身存在人身伤害风险</strong>（跌倒、碰撞、交通意外、身体不适等）。
+这些风险源于跑步这项活动本身与实际路况，<strong>不因使用本应用而消除</strong>。
+你自愿参与，即表示你已理解并接受这些风险。</p></li>
+<li><p><strong>本应用对志愿者的审核限于身份真实性</strong>（实名与活体认证），
+<strong>我们不对志愿者的陪跑技能、身体素质、性格品行或服务质量作任何保证</strong>。</p></li>
+<li><p>对于<strong>用户之间</strong>在服务过程中发生的纠纷、损害或争议，
+由当事人依法自行解决。我们会在合理范围内提供<strong>我们所掌握的</strong>订单与轨迹记录，协助查明事实。</p></li>
+<li><p>因下列原因造成的服务中断或数据丢失，我们不承担责任：
+不可抗力、网络故障、第三方服务（短信、地图、定位、推送等）故障、
+你自身设备或网络的问题、你自行删除数据的行为。</p></li>
+<li><p><strong>在法律允许的最大范围内</strong>，我们对因使用或无法使用本应用而产生的间接损失、
+附带损失或利润损失不承担责任。</p></li>
+<li><p>⚠️
+<strong>本条不排除或限制以下责任</strong>：因我们的故意或重大过失造成的损害；
+法律规定不得排除的人身伤害责任；以及其他依法不得免除的责任。</p></li>
+</ol>
+<hr />
+<h2 id="九知识产权">九、知识产权</h2>
+<p>本应用的软件、界面、文字、图标等内容的知识产权归 个人开发者 所有。
+未经许可，不得复制、修改、反向工程或用于商业目的。</p>
+<p>你在本应用中发布的评价等内容，其权利仍归你所有；
+你授权我们在提供服务所必需的范围内使用这些内容。</p>
+<hr />
+<h2 id="十服务的变更与终止">十、服务的变更与终止</h2>
+<ol type="1">
+<li>我们可能会更新、调整或停止本应用的部分或全部功能。重大变更会提前在应用内告知。</li>
+<li>你违反本协议时，我们可以警告、限制功能、暂停或终止你的账号。</li>
+<li>你可以随时停止使用并注销账号。</li>
+</ol>
+<hr />
+<h2 id="十一协议的修改">十一、协议的修改</h2>
+<p>我们可能修改本协议。修改后会在应用内显著位置公布。
+<strong>如果你不同意修改后的内容，应当停止使用并注销账号；继续使用视为接受。</strong></p>
+<hr />
+<h2 id="十二法律适用与争议解决">十二、法律适用与争议解决</h2>
+<p>本协议适用<strong>中华人民共和国大陆地区</strong>法律。</p>
+<p>因本协议产生的争议，双方应先友好协商；协商不成的， 可向 个人开发者
+所在地有管辖权的人民法院提起诉讼。</p>
+<hr />
+<h2 id="十三联系我们">十三、联系我们</h2>
+<ul>
+<li>邮箱：<a
+href="mailto:zw6963470@gmail.com">zw6963470@gmail.com</a></li>
+<li>应用内：【设置 → 帮助与反馈】</li>
+</ul>
+<hr />
+<h2 id="附单独同意事项清单">附：单独同意事项清单</h2>
+<p>以下事项依法需要你的<strong>单独同意</strong>，我们会在对应功能首次使用前单独询问，
+<strong>不包含在你接受本协议的行为之中</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>事项</th>
+<th>何时询问</th>
+<th>拒绝的后果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>处理身份证姓名与号码</td>
+<td>志愿者认证前</td>
+<td>无法成为志愿者，仍可作为视障用户使用</td>
+</tr>
+<tr>
+<td>处理人脸信息（活体认证）</td>
+<td>人脸认证前</td>
+<td>可改用【二要素 + 人工审核】，审核较慢但等效</td>
+</tr>
+<tr>
+<td>收集位置信息与行踪轨迹</td>
+<td>首次发起或接受同行前</td>
+<td>无法使用同行服务；仍可手动或语音输入地址</td>
+</tr>
+<tr>
+<td>将语音内容发送给第三方大模型</td>
+<td>首次使用语音下单前</td>
+<td>无法使用语音下单，可改用手动输入</td>
+</tr>
+<tr>
+<td>向境外传输设备标识以推送通知</td>
+<td>首次开启通知前</td>
+<td>无法收到派单与紧急提醒</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

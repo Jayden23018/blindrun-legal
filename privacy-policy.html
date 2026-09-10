@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>助盲跑隐私政策</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+  :root { color-scheme: light dark; --fg:#1a1a1a; --bg:#fff; --muted:#4a4a4a; --line:#d4d4d4; --accent:#0b5fa5; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8e8; --bg:#141414; --muted:#b0b0b0; --line:#3a3a3a; --accent:#6db3f2; }
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0 auto; padding: 1.5rem 1.25rem 4rem; max-width: 44rem;
+    font: 1rem/1.75 -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
+    color: var(--fg); background: var(--bg); word-wrap: break-word;
+  }
+  h1 { font-size: 1.75rem; line-height: 1.35; margin: 0 0 1.5rem; }
+  h2 { font-size: 1.3rem; margin: 2.5rem 0 .75rem; padding-bottom: .3rem; border-bottom: 2px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.75rem 0 .5rem; }
+  a { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; display: block; overflow-x: auto; }
+  th, td { border: 1px solid var(--line); padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  th { background: color-mix(in srgb, var(--fg) 7%, transparent); }
+  blockquote { margin: 1rem 0; padding: .75rem 1rem; border-left: 4px solid var(--accent);
+               background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  code { font-size: .9em; padding: .1em .35em; border-radius: 3px;
+         background: color-mix(in srgb, var(--fg) 8%, transparent); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+  strong { font-weight: 600; }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">助盲跑隐私政策</h1>
+</header>
+<h1 id="助盲跑隐私政策">助盲跑隐私政策</h1>
+<p><strong>版本</strong>：v1.0 <strong>生效日期</strong>：2026-09-10
+<strong>运营主体</strong>：个人开发者 <strong>联系方式</strong>：<a
+href="mailto:zw6963470@gmail.com">zw6963470@gmail.com</a></p>
+<hr />
+<h2 id="一我们是谁这份政策管什么">一、我们是谁，这份政策管什么</h2>
+<p>助盲跑（以下称"本应用"）是一款免费的公益辅助工具，帮助视障跑者与志愿者结伴跑步。
+本应用<strong>不含任何付费功能、订阅、内购或广告</strong>。</p>
+<p>这份政策说明我们收集哪些信息、为什么收集、给了谁、存多久、以及你如何拿回控制权。
+<strong>如果你不同意这份政策，请不要使用本应用。</strong></p>
+<hr />
+<h2 id="二我们收集哪些信息">二、我们收集哪些信息</h2>
+<p>我们只收集实现功能所必需的信息。以下是<strong>全部</strong>类别，没有隐藏项。</p>
+<h3 id="21-注册与登录">2.1 注册与登录</h3>
+<table>
+<thead>
+<tr>
+<th>信息</th>
+<th>何时收集</th>
+<th>为什么必需</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>手机号码</td>
+<td>注册/登录时你主动填写</td>
+<td>这是你的账号标识，也是我们联系你的唯一方式</td>
+</tr>
+<tr>
+<td>昵称</td>
+<td>你主动填写</td>
+<td>在服务过程中向对方展示</td>
+</tr>
+</tbody>
+</table>
+<p>短信验证码由阿里云短信服务发送，我们不会保存你的验证码。</p>
+<h3 id="22-red_circle-敏感个人信息我们会单独征求你的同意">2.2 🔴
+敏感个人信息（我们会单独征求你的同意）</h3>
+<p>以下三类属于《个人信息保护法》第 28
+条定义的<strong>敏感个人信息</strong>。
+我们会在<strong>每一类首次收集前单独询问你</strong>，而不是让你一次性勾选一份总协议。
+<strong>你可以拒绝，拒绝的后果我们会当场说明。</strong></p>
+<p><strong>（1）身份证姓名与号码 —— 仅志愿者</strong></p>
+<ul>
+<li><strong>为什么必需</strong>：志愿者要与视障用户单独同行，实名是保障视障用户人身安全的底线要求。</li>
+<li><strong>怎么保护</strong>：身份证号在我们的数据库中以
+<strong>AES-256-GCM 加密存储</strong>，不以明文保存。</li>
+<li><strong>拒绝的后果</strong>：无法成为志愿者，但仍可以作为视障用户使用本应用。</li>
+</ul>
+<p><strong>（2）人脸信息（活体认证）—— 仅志愿者</strong></p>
+<ul>
+<li><strong>为什么必需</strong>：确认操作者本人与所提交的身份证件是同一人，防止身份冒用。</li>
+<li><strong>🔴
+我们不存储你的人脸</strong>：人脸采集与比对由<strong>阿里云实人认证服务</strong>在其系统内完成，
+人脸图像<strong>不经过、也不保存在我们的服务器上</strong>。我们只保存阿里云返回的一个认证结果流水号。</li>
+<li><strong>保存期限</strong>：人脸图像的保存由阿里云按其规则处理；我们保存的流水号在你注销账号时删除。</li>
+<li><strong>你有权拒绝</strong>：依据《人脸识别技术应用安全管理办法》第十条，我们不会把人脸识别作为唯一的验证方式。
+若你不同意人脸认证，可以选择【身份证二要素核验 +
+人工审核】的方式完成认证， 该方式审核时间较长，但结果等效。</li>
+<li><strong>撤回同意</strong>：你可以随时通过【设置 →
+删除账户】撤回，或联系 <a
+href="mailto:zw6963470@gmail.com">zw6963470@gmail.com</a>
+单独要求删除认证记录。</li>
+</ul>
+<p><strong>（3）位置信息与行踪轨迹 —— 双方</strong></p>
+<ul>
+<li><strong>为什么必需</strong>：这是本应用的核心。志愿者要找到你、陪跑过程中双方要相互看到位置、
+两人走散时系统要能发现、发起紧急求助时要能告诉你的紧急联系人你在哪里。</li>
+<li><strong>收集时机</strong>：仅在你<strong>发起或参与同行服务期间</strong>收集。服务结束后停止采集。</li>
+<li><strong>后台采集</strong>：陪跑过程中即使你锁屏或切换到其他应用，位置采集仍会继续
+—— 否则陪跑中断就没人知道你在哪里。这会增加耗电。</li>
+<li><strong>拒绝的后果</strong>：无法使用同行服务。但你仍可以<strong>手动输入或语音说出地址</strong>来发起订单。</li>
+</ul>
+<h3 id="23-紧急联系人信息">2.3 紧急联系人信息</h3>
+<p>你可以填写紧急联系人的<strong>姓名、手机号、与你的关系</strong>，用于紧急求助时通知对方。</p>
+<blockquote>
+<p>🔴
+<strong>请注意</strong>：你填写的是<strong>他人</strong>的个人信息。请在填写前告知对方并取得其同意。
+我们会在你首次添加时向该号码发送一条告知短信。</p>
+</blockquote>
+<h3 id="24-服务过程中产生的信息">2.4 服务过程中产生的信息</h3>
+<ul>
+<li>订单信息：起点、终点、时间、状态、订单编号</li>
+<li>常用地址：你主动收藏的地址（通常是你的住址或常去的地点）</li>
+<li>跑步轨迹：服务过程中的位置点序列</li>
+<li>评价内容、客服工单内容（你主动填写的文字）</li>
+<li>设备推送标识（用于向你的设备发送通知）</li>
+</ul>
+<h3 id="25-语音信息">2.5 语音信息</h3>
+<p>当你使用语音下单时，你的语音<strong>在你的手机本地</strong>被转换为文字。
+<strong>我们不上传你的原始录音</strong>，但<strong>转换后的文字会发送给通义千问（阿里云）用于理解你的指令</strong>
+—— 详见第四节。</p>
+<h3 id="26-我们不收集的">2.6 我们<strong>不</strong>收集的</h3>
+<ul>
+<li>❌ 通讯录 ❌ 相册（除你主动选择上传的证件照）❌ 浏览记录 ❌
+搜索记录</li>
+<li>❌ 健康与运动数据（我们不接入
+HealthKit，不计算配速、心率或卡路里）</li>
+<li>❌ 支付与财务信息（本应用无任何收费功能）</li>
+<li>❌
+<strong>我们不进行任何广告追踪</strong>，不使用广告标识符，不与任何第三方共享数据用于广告目的</li>
+</ul>
+<hr />
+<h2 id="三我们怎么用这些信息">三、我们怎么用这些信息</h2>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>用到哪些信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>账号注册、登录与身份识别</td>
+<td>手机号</td>
+</tr>
+<tr>
+<td>匹配志愿者、派单</td>
+<td>位置、订单信息、志愿者服务时间</td>
+</tr>
+<tr>
+<td>陪跑过程中的位置共享与走散提醒</td>
+<td>双方位置</td>
+</tr>
+<tr>
+<td>紧急求助：通知紧急联系人与平台客服</td>
+<td>姓名、位置、紧急联系人手机号</td>
+</tr>
+<tr>
+<td>志愿者资质审核</td>
+<td>身份证信息、人脸认证结果、证件照片</td>
+</tr>
+<tr>
+<td>理解你的语音指令</td>
+<td>语音转换后的文字</td>
+</tr>
+<tr>
+<td>发送服务通知</td>
+<td>设备推送标识、手机号</td>
+</tr>
+<tr>
+<td>处理投诉与纠纷复核</td>
+<td>订单记录、评价、客服工单</td>
+</tr>
+<tr>
+<td>保障服务安全、排查故障</td>
+<td>崩溃与错误日志（已做脱敏处理）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>我们不会把这些信息用于上表以外的目的。</strong>
+如果将来需要新增用途，我们会重新征求你的同意。</p>
+<hr />
+<h2 id="四我们把信息给了谁">四、我们把信息给了谁</h2>
+<p>我们<strong>不出售</strong>你的个人信息。以下是全部接收方，以及各自拿到什么：</p>
+<table>
+<thead>
+<tr>
+<th>接收方</th>
+<th>拿到什么</th>
+<th>为什么</th>
+<th>服务器位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>阿里云短信服务</strong></td>
+<td>手机号；紧急求助时还包括你的姓名、时间和位置描述</td>
+<td>发送验证码与通知短信</td>
+<td>中国境内</td>
+</tr>
+<tr>
+<td><strong>阿里云实人认证</strong></td>
+<td>姓名、身份证号、人脸图像（由 App 直接上传，不经我们服务器）</td>
+<td>志愿者实名与活体认证</td>
+<td>中国境内</td>
+</tr>
+<tr>
+<td><strong>阿里云对象存储 OSS</strong></td>
+<td>志愿者上传的证件照片</td>
+<td>存储证件照片（私有存储，仅授权访问）</td>
+<td>中国境内</td>
+</tr>
+<tr>
+<td><strong>高德地图</strong></td>
+<td>经纬度坐标、地址文字</td>
+<td>把坐标转换成地址、搜索地点</td>
+<td>中国境内</td>
+</tr>
+<tr>
+<td><strong>🔴 通义千问（阿里云大模型服务）</strong></td>
+<td><strong>你语音下单时说的话（转换成的文字）</strong></td>
+<td>理解你的指令中哪部分是出发地、目的地和时间</td>
+<td>中国境内</td>
+</tr>
+<tr>
+<td><strong>🔴 Apple 推送通知服务（APNs）</strong></td>
+<td>设备推送标识、通知的标题与正文</td>
+<td>向你的 iPhone 推送通知</td>
+<td><strong>中国境外</strong></td>
+</tr>
+<tr>
+<td>错误监控服务</td>
+<td>崩溃堆栈与错误信息（已自动抹去身份证号、坐标、令牌等）</td>
+<td>发现并修复故障</td>
+<td>中国境内（自建）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>我们对上述第三方的要求</strong>：所有接收方均须为你的信息提供与本政策同等或更高水平的保护，
+且仅能在我们委托的目的范围内处理，不得另作他用。</p>
+<h3 id="red_circle-关于向境外传输">🔴 关于向境外传输</h3>
+<p>上表中<strong>只有 Apple 推送通知服务（APNs）位于中国境外</strong>。
+向其传输的仅为设备推送标识和通知文案，通知文案中的姓名已做脱敏处理（如"张*"）。
+若你不希望产生这一传输，可以在系统设置中关闭本应用的通知权限 ——
+关闭后你将无法及时收到派单、接单和紧急求助的提醒。</p>
+<h3 id="red_circle-关于第三方人工智能服务">🔴
+关于第三方人工智能服务</h3>
+<p>依据 Apple App Store 的披露要求与《个人信息保护法》，我们特别声明：
+<strong>你使用语音下单时说出的内容，会被发送给通义千问大模型服务用于语义理解。</strong>
+这段文字中可能包含你的出发地、目的地、时间，以及你自愿说出的其他内容。
+<strong>如果你不希望这段内容被发送给大模型，请不要使用语音下单，改用手动输入。</strong></p>
+<hr />
+<h2 id="五我们存多久">五、我们存多久</h2>
+<table>
+<thead>
+<tr>
+<th>信息</th>
+<th>保存期限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>账号信息（手机号、昵称）</td>
+<td>直至你注销账号</td>
+</tr>
+<tr>
+<td>身份证信息、人脸认证流水号、证件照片</td>
+<td>直至你注销账号</td>
+</tr>
+<tr>
+<td>跑步轨迹</td>
+<td><strong>90 天</strong>后自动删除</td>
+</tr>
+<tr>
+<td>紧急求助的位置坐标</td>
+<td><strong>90 天</strong>后自动清除</td>
+</tr>
+<tr>
+<td>紧急联系人、常用地址、客服工单</td>
+<td>直至你注销账号</td>
+</tr>
+<tr>
+<td>订单记录、评价、紧急求助事件记录</td>
+<td>注销后<strong>仍会保留</strong>，见下</td>
+</tr>
+<tr>
+<td>实时位置（用于当前服务）</td>
+<td>30 秒后自动过期</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关于注销后仍保留的记录</strong>：订单记录、评价和紧急求助事件记录在你注销后不会删除，
+但其中<strong>不包含你的姓名和手机号</strong>（这些在注销时已被删除或匿名化），只保留一个无法反查到你的编号。
+保留原因是：这些记录涉及<strong>另一方用户</strong>，是发生纠纷时唯一的复核依据。</p>
+<hr />
+<h2 id="六你的权利">六、你的权利</h2>
+<p>你可以随时行使以下权利：</p>
+<table>
+<thead>
+<tr>
+<th>权利</th>
+<th>怎么做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>查阅、更正</strong>你的信息</td>
+<td>App 内【设置 → 个人资料】</td>
+</tr>
+<tr>
+<td><strong>删除账号及个人信息</strong></td>
+<td>App 内【设置 → 删除账户】，两次确认后立即执行</td>
+</tr>
+<tr>
+<td><strong>撤回同意</strong></td>
+<td>关闭对应的系统权限（定位、麦克风、通知等）；或删除账号</td>
+</tr>
+<tr>
+<td>获取信息副本、限制处理、其他权利</td>
+<td>联系 <a
+href="mailto:zw6963470@gmail.com">zw6963470@gmail.com</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="删除账号会发生什么">删除账号会发生什么</h3>
+<ul>
+<li><strong>立即删除</strong>：你的姓名、身份证信息、人脸认证记录、证件照片、紧急联系人、常用地址、
+跑步轨迹、客服工单、设备推送标识</li>
+<li><strong>立即失效</strong>：你的登录凭证，所有设备上的会话立即终止</li>
+<li><strong>保留但匿名化</strong>：手机号被替换为无意义编号，订单与评价记录保留但无法关联到你</li>
+<li>⚠️ <strong>有进行中的服务时无法删除</strong> ——
+请先完成或取消当前订单</li>
+</ul>
+<p><strong>账号删除不可撤销。</strong></p>
+<hr />
+<h2 id="七我们怎么保护这些信息">七、我们怎么保护这些信息</h2>
+<ul>
+<li>身份证号采用 <strong>AES-256-GCM</strong> 加密后存储</li>
+<li>传输采用 <strong>HTTPS / TLS 加密</strong></li>
+<li>手机号在向对方展示时做掩码处理（如 <code>138****1234</code>）；
+<strong>仅在服务进行中、需要双方直接联系时</strong>才展示完整号码，服务结束后立即不可见</li>
+<li>姓名向对方展示时做掩码处理（如"张*"）</li>
+<li>客服查看紧急联系电话的每一次操作都会留下审计记录</li>
+<li>错误日志在离开我们的系统前会自动抹去身份证号、坐标和登录令牌</li>
+</ul>
+<p><strong>但我们必须诚实地告诉你</strong>：没有任何系统能保证 100%
+安全。 如果发生个人信息泄露，我们会依法及时告知你并向监管部门报告。</p>
+<hr />
+<h2 id="八未成年人">八、未成年人</h2>
+<p>本应用<strong>不面向未满 14 周岁的儿童</strong>。 若你未满 18
+周岁，请在监护人的同意与指导下使用。
+如我们发现在未获监护人同意的情况下收集了未满 14
+周岁儿童的个人信息，将尽快删除。</p>
+<hr />
+<h2 id="九red_circle-关于紧急求助功能的重要说明">九、🔴
+关于紧急求助功能的重要说明</h2>
+<p><strong>本应用的"紧急求助"功能不是紧急救援服务，不能替代 120、110
+或任何官方急救渠道。</strong></p>
+<p>它所做的仅仅是：向你<strong>事先自行填写</strong>的紧急联系人发送一条短信，并通知平台客服人工跟进。
+它的送达依赖于网络、短信通道和对方是否查看手机，<strong>我们无法保证送达，也无法保证有人响应</strong>。</p>
+<p><strong>遇到紧急情况，请首先拨打 120（急救）或 110（报警）。</strong>
+本应用界面中提供了直接拨打的入口。</p>
+<hr />
+<h2 id="十政策更新">十、政策更新</h2>
+<p>本政策如有变更，我们会在应用内显著位置告知你。
+涉及敏感个人信息处理方式变更的，我们会重新征求你的单独同意。</p>
+<hr />
+<h2 id="十一联系我们">十一、联系我们</h2>
+<p>对本政策有任何疑问、意见，或希望行使上述任何权利，请联系：</p>
+<ul>
+<li>邮箱：<a
+href="mailto:zw6963470@gmail.com">zw6963470@gmail.com</a></li>
+<li>应用内：【设置 → 帮助与反馈】</li>
+</ul>
+<p>我们会在收到后 <strong>15 个工作日</strong>内回复。</p>
+</body>
+</html>
