@@ -19,7 +19,7 @@
   <div class="wrap">
     <a class="brand" href="#top"><img src="assets/img/icon-48.png" alt="" aria-hidden="true" width="24" height="24">助盲跑</a>
     <nav aria-label="页面导航">
-      <ul>
+      <ul role="list">
         <li><a href="#how">怎么陪跑</a></li>
         <li><a href="#safety">安全</a></li>
         <li><a href="#about">关于我们</a></li>
@@ -38,7 +38,7 @@
         <p class="lede">助盲跑为视障跑者匹配附近的志愿陪跑员。你们各握牵引绳的一端，一起跑完全程。对跑者和陪跑员都免费。</p>
         <div class="cta">
           <p class="store-badge"><span>App Store</span><b>即将上架</b></p>
-          <a class="more" href="#contact">联系我们</a>
+          <a class="more" href="#contact">联系我们<span aria-hidden="true"> ›</span></a>
         </div>
       </div>
       <!-- 有真实陪跑照片后，把下面这张图换成 <picture>，并按画面内容写 alt -->
@@ -85,7 +85,7 @@
   <section class="section alt" id="before" aria-labelledby="before-title">
     <div class="wrap reveal">
       <h2 class="section-title" id="before-title">接单之前，我们会先确认你是谁。</h2>
-      <ul class="gate-list">
+      <ul class="gate-list" role="list">
         <li><h3>实名认证</h3><p>填身份证姓名和号码，再对着手机眨眼、点头，完成活体检测。</p></li>
         <li><h3>人工审核</h3><p>上传证件，工作人员审核通过后才能接单。</p></li>
         <li><h3>必修培训</h3><p>两门必修课：「陪跑基础」和「突发情况处置」，图文课加情景选择题。</p></li>
@@ -116,14 +116,13 @@
         <h2 class="section-title">联系我们</h2>
         <dl class="contact-list">
           <dt>邮箱</dt>
-          <dd><a href="mailto:{{公司邮箱}}">{{公司邮箱}}</a><button class="copy-btn" type="button" data-copy="{{公司邮箱}}" hidden>复制</button></dd>
+          <dd><a href="mailto:{{公司邮箱}}">{{公司邮箱}}</a><button class="copy-btn" type="button" data-copy="{{公司邮箱}}" aria-label="复制邮箱地址" hidden>复制</button><span class="copy-status" id="copy-status" role="status" aria-live="polite"></span></dd>
           <dt>电话</dt>
           <dd><a href="tel:{{电话}}">{{电话}}</a></dd>
           <dt>地址</dt>
           <dd>{{地址}}</dd>
         </dl>
         <p class="note">视障跑者和家属遇到问题，也请写信给我们，或先看<a href="support.html">技术支持</a>页的常见问题。</p>
-        <p class="visually-hidden" id="copy-status" role="status" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -133,7 +132,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <nav aria-label="法律与支持">
-      <ul>
+      <ul role="list">
         <li><a href="privacy-policy.html">隐私政策</a></li>
         <li><a href="user-agreement.html">用户协议</a></li>
         <li><a href="support.html">技术支持</a></li>
