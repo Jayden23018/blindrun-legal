@@ -54,9 +54,10 @@ CASES = [
     ("没有 h1", {"a.html": HEAD + "<h2>t</h2>" + TAIL}, (), 1, "h1 应恰好 1 个，实际 0 个"),
     ("两个 h1", {"a.html": HEAD + "<h1>t</h1><h1>u</h1>" + TAIL}, (), 1, "h1 应恰好 1 个，实际 2 个"),
     ("标题跳级", {"a.html": HEAD + "<h1>t</h1><h3>u</h3>" + TAIL}, (), 1, "标题从 h1 跳到 h3"),
-    ("法律页例外：恰好两个 h1 放行", {"privacy-policy.html": HEAD + "<h1>t</h1><h1>t</h1>" + TAIL}, (), 0, None),
-    ("法律页例外：变成三个 h1 照样报", {"privacy-policy.html": HEAD + "<h1>t</h1><h1>t</h1><h1>t</h1>" + TAIL}, (), 1, "h1 应恰好 2 个，实际 3 个"),
-    ("法律页例外：修好后提示删掉例外", {"privacy-policy.html": HEAD + "<h1>t</h1>" + TAIL}, (), 1, "删掉 H1_EXCEPTIONS"),
+    # 法律页曾有「允许 2 个 h1」的例外（blind-run-backend#809），已修好删掉：现在和别的页一样只许 1 个
+    ("法律页没有例外：隐私政策两个 h1 照样报", {"privacy-policy.html": HEAD + "<h1>t</h1><h1>t</h1>" + TAIL}, (), 1, "privacy-policy.html: h1 应恰好 1 个，实际 2 个"),
+    ("法律页没有例外：用户协议两个 h1 照样报", {"user-agreement.html": HEAD + "<h1>t</h1><h1>t</h1>" + TAIL}, (), 1, "user-agreement.html: h1 应恰好 1 个，实际 2 个"),
+    ("法律页只有一个 h1 时不再提示删例外", {"privacy-policy.html": HEAD + "<h1>t</h1>" + TAIL}, (), 0, None),
 ]
 
 

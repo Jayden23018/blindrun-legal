@@ -198,13 +198,14 @@
          background: color-mix(in srgb, var(--fg) 8%, transparent); }
   hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
   strong { font-weight: 600; }
+  .site-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+  .site-footer a { display: inline-block; padding: .5rem 0; }  /* 行高 + 上下内边距 ≈ 44pt 点按区域 */
+  .site-footer a[aria-current="page"] { font-weight: 600; }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">助盲跑用户协议</h1>
-</header>
 <h1 id="助盲跑用户协议">助盲跑用户协议</h1>
 <p><strong>版本</strong>：v1.0 <strong>生效日期</strong>：2026-09-10
 <strong>服务提供者</strong>：个人开发者</p>
@@ -383,5 +384,15 @@ href="mailto:zw6963470@gmail.com">zw6963470@gmail.com</a></li>
 </tr>
 </tbody>
 </table>
+<footer class="site-footer">
+<nav aria-label="站内导航">
+<ul role="list">
+<li><a href="index.html">首页</a></li>
+<li><a href="privacy-policy.html">隐私政策</a></li>
+<li><a href="user-agreement.html" aria-current="page">用户协议</a></li>
+<li><a href="support.html">技术支持</a></li>
+</ul>
+</nav>
+</footer>
 </body>
 </html>
