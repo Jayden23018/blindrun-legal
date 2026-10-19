@@ -1,6 +1,6 @@
 /* 助盲跑官网样式。设计依据：后端仓库 docs/SPEC-official-website.md §5（A 苹果白）。
    原则：默认样式就是动画终态 —— 不支持滚动动画、关了 JS、开了「减弱动态效果」，看到的都是完整页面。
-   动画只写在文件末尾的 @supports 块里。 */
+   动画只写在文件末尾的 @supports 块里。2026-10-19 起去掉了「牵引绳」滚动动效（负责人决定先不要），只剩逐字点亮和淡入。 */
 
 :root {
   --font: -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -68,7 +68,7 @@ a:hover { text-decoration: underline; }
 /* —— 首屏 —— */
 .hero { padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 5vw, 72px); }
 .hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 32px; }
-.hero h1 { font-size: clamp(30px, 5vw, 68px); line-height: 1.12; font-weight: 600; }
+.hero h1 { font-size: clamp(30px, 4.4vw, 62px); line-height: 1.12; font-weight: 600; }  /* 第二行 9 个字，62px 时 558px，放得进 571px 的左栏 */
 .hero h1 span { display: block; white-space: nowrap; }
 .lede { margin-top: 24px; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.65; color: var(--ink-2); max-width: 30em; }
 .cta { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
@@ -79,15 +79,9 @@ a:hover { text-decoration: underline; }
 }
 .store-badge b { font-size: 19px; font-weight: 600; }
 
-/* —— 牵引绳动效区（默认：静态终态） —— */
-.tether { background: var(--paper); overflow: clip; }
-.tether-stage { padding: var(--section-pad) 0; display: flex; flex-direction: column; align-items: center; gap: clamp(28px, 5vh, 56px); }
-.tether-lines p { text-wrap: balance; }
-.tether-lines { text-align: center; font-size: clamp(26px, 3.8vw, 52px); line-height: 1.25; font-weight: 600; }
-.tether-lines p + p { margin-top: .35em; }
-/* 静态版不显示这张图：它和首屏那张一模一样，连着出现两次是重复。有动画时才显示（见文件末尾） */
-.duo-stack { display: none; position: relative; width: min(720px, 86vw); aspect-ratio: 1540 / 1180; }
-.duo-stack .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* —— 一段大字：首屏之后的第一屏 —— */
+.statement { padding: var(--section-pad) 0; }
+.statement-text { font-size: clamp(28px, 4.2vw, 56px); line-height: 1.35; font-weight: 600; max-width: 18em; }
 
 /* —— 通用区块 —— */
 .section { padding: var(--section-pad) 0; }
@@ -166,38 +160,6 @@ a:hover { text-decoration: underline; }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
 
-    /* 牵引绳：外层拉高，内层吸顶，跟着这一段的滚动进度走 */
-    /* 320vh = 吸顶的一屏 + 约 2.2 屏的滚动距离（SPEC §6.3） */
-    .tether { height: 320vh; overflow: visible; view-timeline: --tether block; }
-    /* 图的宽度同时受视口高度限制：矮屏（1366×768 笔记本、手机横屏）上三句话 + 图也装得下，不会被 overflow 裁掉 */
-    .duo-stack { display: block; width: min(720px, 86vw, calc((100svh - var(--nav-h) - 220px) * 1540 / 1180)); }
-    .tether-stage {
-      position: sticky; top: var(--nav-h);
-      height: calc(100svh - var(--nav-h)); padding: 0; justify-content: center;
-      overflow: clip;
-    }
-    .tether-lines { display: grid; }
-    .tether-lines p { grid-area: 1 / 1; margin: 0 !important; }
-    .tether-lines p + p { margin-top: 0; }
-
-    .tether-lines p,
-    .duo-stack .layer {
-      animation-timeline: --tether;
-      animation-fill-mode: both;
-      animation-timing-function: linear;
-    }
-    .tether-lines p:nth-child(1) { animation-name: line-pass; animation-range: contain 0% contain 32%; }
-    .tether-lines p:nth-child(2) { animation-name: line-pass; animation-range: contain 30% contain 64%; }
-    .tether-lines p:nth-child(3) { animation-name: line-stay; animation-range: contain 62% contain 80%; }
-
-    .layer-left { animation-name: meet-left; animation-range: contain 0% contain 55%; }
-    .layer-right { animation-name: meet-right; animation-range: contain 0% contain 55%; }
-    /* 牵引绳跟着左边的人走，同时从左往右「画」出来 */
-    .layer-rope {
-      animation-name: meet-left, draw-rope;
-      animation-range: contain 0% contain 55%, contain 45% contain 85%;
-    }
-
     /* 谁可以当陪跑员：逐字点亮。行内元素的背景按阅读顺序连成一条，所以宽度从 0 长到 100% 就是逐字变黑 */
     .who-text > span {
       color: transparent;
@@ -220,19 +182,6 @@ a:hover { text-decoration: underline; }
   }
 }
 
-@keyframes line-pass {
-  0% { opacity: 0; transform: translateY(14px); }
-  18%, 82% { opacity: 1; transform: none; }
-  100% { opacity: 0; transform: translateY(-14px); }
-}
-@keyframes line-stay {
-  0% { opacity: 0; transform: translateY(14px); }
-  100% { opacity: 1; transform: none; }
-}
-@keyframes meet-left { from { transform: translateX(-42%); } to { transform: none; } }
-@keyframes meet-right { from { transform: translateX(42%); } to { transform: none; } }
-/* 起始只露出绕在左边跑者腰上的那一圈（绳宽的 37%，正好到腰部右缘） */
-@keyframes draw-rope { from { clip-path: inset(0 63% 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes light-up { to { background-size: 100% 100%, 100% 100%; } }
 @keyframes reveal { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
