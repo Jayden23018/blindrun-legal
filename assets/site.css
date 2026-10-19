@@ -1,0 +1,242 @@
+/* 助盲跑官网样式。设计依据：后端仓库 docs/SPEC-official-website.md §5（A 苹果白）。
+   原则：默认样式就是动画终态 —— 不支持滚动动画、关了 JS、开了「减弱动态效果」，看到的都是完整页面。
+   动画只写在文件末尾的 @supports 块里。 */
+
+:root {
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --ink: #1d1d1f;
+  --ink-2: #6e6e73;
+  --dim: #d2d2d7;
+  --paper: #fff;
+  --paper-2: #f5f5f7;
+  --line: #d2d2d7;
+  --link: #0066cc;
+  --rope: #fd7a1c;          /* 只用于图形：在白底上做文字对比度只有 2.6:1 */
+  --rope-text: #b25000;     /* 橙色文字用这个（App 的 AppColors.warning），白底 5.2:1 */
+  --nav-h: 52px;
+  --wrap: 1080px;
+  --gutter: 24px;
+  --section-pad: clamp(72px, 11vw, 160px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: var(--nav-h); }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p, dl, dd, figure, ul { margin: 0; padding: 0; }
+h1, h2, h3 { text-wrap: balance; }
+p, dd { text-wrap: pretty; }
+.nb { white-space: nowrap; }
+ul { list-style: none; }
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+.skip {
+  position: absolute; left: 12px; top: -48px; z-index: 100;
+  background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 8px;
+}
+.skip:focus { top: 12px; }
+
+/* —— 顶栏 —— */
+.site-nav {
+  position: sticky; top: 0; z-index: 50;
+  height: var(--nav-h);
+  background: rgba(255, 255, 255, .96);
+  border-bottom: 1px solid #e5e5ea;
+}
+.site-nav .wrap { height: 100%; display: flex; align-items: center; gap: 28px; }
+.brand { display: flex; align-items: center; gap: 8px; margin-right: auto; color: var(--ink); font-weight: 600; font-size: 17px; }
+.brand:hover { text-decoration: none; }
+.brand img { width: 24px; height: 24px; border-radius: 6px; }
+.site-nav ul { display: flex; gap: 28px; font-size: 14px; }
+.site-nav ul a { color: #424245; }
+
+/* —— 首屏 —— */
+.hero { padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 5vw, 72px); }
+.hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 32px; }
+.hero h1 { font-size: clamp(30px, 5vw, 68px); line-height: 1.12; font-weight: 600; }
+.hero h1 span { display: block; white-space: nowrap; }
+.lede { margin-top: 24px; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.65; color: var(--ink-2); max-width: 30em; }
+.cta { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.store-badge {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  padding: 11px 20px; border: 1.5px solid #c7c7cc; border-radius: 12px;
+  color: #6e6e73; font-size: 15px; line-height: 1.2;
+}
+.store-badge b { font-size: 19px; font-weight: 600; }
+.more::after { content: " ›"; }
+
+/* —— 牵引绳动效区（默认：静态终态） —— */
+.tether { background: var(--paper); overflow: clip; }
+.tether-stage { padding: var(--section-pad) 0; display: flex; flex-direction: column; align-items: center; gap: clamp(28px, 5vh, 56px); }
+.tether-lines p { text-wrap: balance; }
+.tether-lines { text-align: center; font-size: clamp(26px, 3.8vw, 52px); line-height: 1.25; font-weight: 600; }
+.tether-lines p + p { margin-top: .35em; }
+/* 静态版不显示这张图：它和首屏那张一模一样，连着出现两次是重复。有动画时才显示（见文件末尾） */
+.duo-stack { display: none; position: relative; width: min(720px, 86vw); aspect-ratio: 1540 / 1180; }
+.duo-stack .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* —— 通用区块 —— */
+.section { padding: var(--section-pad) 0; }
+.section.alt { background: var(--paper-2); }
+.section-title { font-size: clamp(30px, 4vw, 48px); line-height: 1.18; font-weight: 600; max-width: 18em; }
+
+/* 「小标题 + 大句子」的行 */
+.rows { margin-top: clamp(32px, 4vw, 56px); }
+.rows > div { display: grid; grid-template-columns: 160px 1fr; gap: 8px 32px; padding: 28px 0; border-top: 1px solid var(--line); }
+.rows dt { font-size: 17px; font-weight: 600; color: var(--ink-2); padding-top: .35em; }
+.rows dd { font-size: clamp(20px, 2.2vw, 28px); line-height: 1.45; font-weight: 600; max-width: 34em; }
+.rows q { quotes: "「" "」"; }
+
+/* —— 谁可以当陪跑员 —— */
+.who .label { font-size: 17px; font-weight: 600; color: var(--rope-text); }
+.who-text { margin-top: 20px; font-size: clamp(28px, 4.2vw, 56px); line-height: 1.32; font-weight: 600; max-width: 20em; }
+
+/* —— 接单之前：四道关沿一根牵引绳排开，每道关是绳上的一个结。不加序号（SPEC §6.6）。
+   App 截图到位后，在每个 li 的文字上方加 <img>，宽度跟列宽走即可。 —— */
+.gate-list {
+  margin-top: clamp(40px, 5vw, 64px);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  position: relative;
+}
+.gate-list::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 4px; border-radius: 2px;
+  background: var(--rope);
+}
+.gate-list li { position: relative; padding-top: 44px; }
+.gate-list li::before {
+  content: ""; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--paper-2); border: 4px solid var(--rope);
+}
+.gate-list h3 { font-size: clamp(20px, 2vw, 24px); line-height: 1.3; font-weight: 600; }
+.gate-list p { margin-top: 10px; font-size: 17px; line-height: 1.65; color: var(--ink-2); }
+
+/* —— 关于 / 联系 —— */
+.about-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 80px; }
+.about-contact p { margin-top: 20px; font-size: clamp(18px, 1.8vw, 22px); line-height: 1.65; }
+.contact-list { margin-top: 20px; display: grid; grid-template-columns: auto 1fr; gap: 12px 24px; font-size: clamp(18px, 1.8vw, 22px); }
+.contact-list dt { color: var(--ink-2); }
+.copy-btn {
+  margin-left: 12px; font: inherit; font-size: 14px; color: var(--link); background: none;
+  border: 1px solid #c7c7cc; border-radius: 999px; padding: 2px 12px; cursor: pointer; vertical-align: middle;
+}
+.note { color: var(--ink-2); }
+/* 正文段落里的链接不能只靠颜色区分（WCAG 1.4.1） */
+.note a, .about-contact p a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* —— 页脚 —— */
+.site-footer { background: var(--paper-2); border-top: 1px solid #e5e5ea; padding: 28px 0 40px; font-size: 13px; color: var(--ink-2); }
+.site-footer ul { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 12px; }
+.site-footer a { color: #424245; }
+
+/* —— 窄屏 —— */
+@media (max-width: 899px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero-art { max-width: min(560px, 100%); }
+  .hero h1 { font-size: clamp(30px, 8.6vw, 60px); }
+  .about-contact { grid-template-columns: 1fr; }
+  /* 绳子改成竖的，结在左边 */
+  .gate-list { grid-template-columns: 1fr; gap: 36px; }
+  .gate-list::before { left: 9px; right: auto; top: 0; bottom: 0; width: 4px; height: auto; }
+  .gate-list li { padding: 0 0 0 48px; }
+}
+@media (max-width: 640px) {
+  .site-nav ul li:not(:last-child) { display: none; }
+  .rows > div { grid-template-columns: 1fr; padding: 22px 0; }
+  .rows dt { padding-top: 0; }
+}
+
+/* ===================================================================
+   动效：只在「支持滚动动画」且「没要求减弱动态效果」时启用。
+   =================================================================== */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    /* 牵引绳：外层拉高，内层吸顶，跟着这一段的滚动进度走 */
+    .tether { height: 260vh; overflow: visible; view-timeline: --tether block; }
+    .duo-stack { display: block; }
+    .tether-stage {
+      position: sticky; top: var(--nav-h);
+      height: calc(100svh - var(--nav-h)); padding: 0; justify-content: center;
+      overflow: clip;
+    }
+    .tether-lines { display: grid; }
+    .tether-lines p { grid-area: 1 / 1; margin: 0 !important; }
+    .tether-lines p + p { margin-top: 0; }
+
+    .tether-lines p,
+    .duo-stack .layer {
+      animation-timeline: --tether;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+    .tether-lines p:nth-child(1) { animation-name: line-pass; animation-range: contain 0% contain 32%; }
+    .tether-lines p:nth-child(2) { animation-name: line-pass; animation-range: contain 30% contain 64%; }
+    .tether-lines p:nth-child(3) { animation-name: line-stay; animation-range: contain 62% contain 80%; }
+
+    .layer-left { animation-name: meet-left; animation-range: contain 0% contain 55%; }
+    .layer-right { animation-name: meet-right; animation-range: contain 0% contain 55%; }
+    /* 牵引绳跟着左边的人走，同时从左往右「画」出来 */
+    .layer-rope {
+      animation-name: meet-left, draw-rope;
+      animation-range: contain 0% contain 55%, contain 45% contain 85%;
+    }
+
+    /* 谁可以当陪跑员：逐字点亮。行内元素的背景按阅读顺序连成一条，所以宽度从 0 长到 100% 就是逐字变黑 */
+    .who-text > span {
+      color: transparent;
+      background-image: linear-gradient(var(--ink), var(--ink)), linear-gradient(var(--dim), var(--dim));
+      background-repeat: no-repeat;
+      background-size: 0% 100%, 100% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: light-up linear both;
+      animation-timeline: view();
+      animation-range: cover 25% cover 60%;
+    }
+
+    /* 其余区块：进入视口时淡入一次 */
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes line-pass {
+  0% { opacity: 0; transform: translateY(14px); }
+  18%, 82% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-14px); }
+}
+@keyframes line-stay {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes meet-left { from { transform: translateX(-42%); } to { transform: none; } }
+@keyframes meet-right { from { transform: translateX(42%); } to { transform: none; } }
+/* 起始只露出绕在左边跑者腰上的那一圈（绳宽的 37%，正好到腰部右缘） */
+@keyframes draw-rope { from { clip-path: inset(0 63% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes light-up { to { background-size: 100% 100%, 100% 100%; } }
+@keyframes reveal { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+/* 不支持滚动动画的浏览器：由 site.js 加 .js-reveal，进入视口时淡入一次。JS 没跑起来就什么都不隐藏。 */
+.js-reveal .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+}
