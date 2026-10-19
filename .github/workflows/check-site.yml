@@ -1,0 +1,60 @@
+# 官网发布门禁 + 部署：门禁不过就不部署。
+#
+# 前提：仓库 Settings → Pages → Build and deployment → Source 选「GitHub Actions」。
+# 选「Deploy from a branch」时 Pages 会绕过这个工作流直接发布 main，门禁就只剩让 PR 变红的作用。
+#
+# 用 GitHub 托管的机器，不用本机 self-hosted runner：这是公开仓库，外部 PR 的代码会在 runner 上执行。
+# 动作版本 2026-10-19 核对：checkout v7、configure-pages v6、upload-pages-artifact v5、deploy-pages v5。
+name: check-site
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: 门禁自测（check-site.py 的每个分支）
+        run: python3 scripts/test-check-site.py
+      - name: 发布门禁（占位符、坏链接、替代文字、标题层级）
+        run: python3 scripts/check-site.py
+
+  # 只有 main 上的推送（或在 main 上手动触发）才部署；PR 和其他分支只跑上面的检查
+  build:
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/configure-pages@v6
+      - name: 只打包网站文件（不发布 README、scripts/）
+        run: |
+          mkdir _site
+          cp ./*.html _site/
+          if [ -d assets ]; then cp -R assets _site/; fi
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # 同一时间只部署一次；正在跑的部署不取消，排队的只留最新一个
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
