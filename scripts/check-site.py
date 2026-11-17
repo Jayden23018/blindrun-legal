@@ -31,13 +31,10 @@ DRAFT_WORDS = ("草稿", "初稿", "示例文字", "todo", "lorem", "example.com
 TEXT_ATTRS = ("alt", "aria-label", "title", "content", "placeholder")
 EXTERNAL = ("http://", "https://", "mailto:", "tel:", "data:", "//")
 
-# 已知例外：页面 → (允许的 h1 个数, 理由)。只放过这个确切的个数，变多变少都会报。
-# 法律页由后端 docs/legal/build-html.py 生成，pandoc 标题块和正文各出一个 h1，
-# 修法在后端仓库（Jayden23018/blind-run-backend#809），修好后这里会报「例外已过期」。
-H1_EXCEPTIONS = {
-    "privacy-policy.html": (2, "blind-run-backend#809"),
-    "user-agreement.html": (2, "blind-run-backend#809"),
-}
+# 已知例外：页面 → (允许的 h1 个数, 理由)。只放过这个确切的个数，变多变少都会报；
+# 修好以后个数回到 1，这里会报「删掉这一条」。目前没有例外：两份法律页的重复 h1
+# 已在后端 build-html.py 修掉（Jayden23018/blind-run-backend#809）。
+H1_EXCEPTIONS = {}
 
 
 class PageScan(HTMLParser):
