@@ -3,24 +3,157 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>助盲跑 · 法律文本</title>
-<style>
-:root { color-scheme: light dark; --fg:#1a1a1a; --bg:#fff; --accent:#0b5fa5; }
-@media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --bg:#141414; --accent:#6db3f2; } }
-body { margin:0 auto; padding:2rem 1.25rem; max-width:44rem;
-  font:1rem/1.75 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
-  color:var(--fg); background:var(--bg); }
-h1 { font-size:1.75rem; }
-li { margin:.75rem 0; }
-a { color:var(--accent); }
-</style>
+<title>助盲跑 · 为视障跑者匹配志愿陪跑员</title>
+<meta name="description" content="下次晨跑，叫上一位视障跑友。助盲跑帮视障跑者和志愿陪跑员约好时间和地点，两人各握陪跑绳一端一起跑，全程免费。">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/icon-48.png">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
 </head>
 <body>
-<h1>助盲跑 · 法律文本</h1>
-<ul>
-  <li><a href="privacy-policy.html">隐私政策</a></li>
-  <li><a href="user-agreement.html">用户协议</a></li>
-  <li><a href="support.html">技术支持</a></li>
-</ul>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/img/icon-48.png" alt="" aria-hidden="true" width="24" height="24">助盲跑</a>
+    <nav aria-label="页面导航">
+      <ul role="list">
+        <li><a href="#how">怎么陪跑</a></li>
+        <li><a href="#safety">安全</a></li>
+        <li><a href="#events">各地活动</a></li>
+        <li><a href="#about">关于我们</a></li>
+        <li><a href="#contact">联系我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title"><span>下次晨跑，</span><span>叫上一位视障跑友。</span></h1>
+        <p class="lede">对方想跑，只是看不见路；你本来就要跑，顺路多握一根绳。助盲跑帮你们约好时间和地点，全程免费。</p>
+        <div class="cta">
+          <p class="store-badge"><span>App Store</span><b>即将上架</b></p>
+          <a class="more" href="#contact">联系我们<span aria-hidden="true"> ›</span></a>
+        </div>
+      </div>
+      <!-- 有真实陪跑照片后，把下面这张图换成 <picture>，并按画面内容写 alt -->
+      <img class="hero-art" src="assets/img/duo.svg" width="1540" height="1180"
+           alt="两名跑者并肩跑步，一根橙色陪跑绳系在两人之间">
+    </div>
+  </section>
+
+  <section class="statement" aria-labelledby="statement-title">
+    <div class="wrap reveal">
+      <h2 id="statement-title" class="visually-hidden">为什么需要陪跑员</h2>
+      <p class="statement-text">你每周都在跑。<br><span class="nb">有人也想跑，</span><span class="nb">只差一个看路的人。</span><br>下次，握住这根绳。</p>
+    </div>
+  </section>
+
+  <section class="section alt" id="how" aria-labelledby="how-title">
+    <div class="wrap reveal">
+      <h2 class="section-title" id="how-title">陪跑员要做的，就这几件事。</h2>
+      <dl class="rows">
+        <div><dt>开跑前</dt><dd>先问清四件事：跑了多久，跑的时候最难的是什么，有没有特殊装备，这次想跑到什么程度。</dd></div>
+        <div><dt>转弯</dt><dd><q>往左我就拉一下，往右，我就顶他手臂一下。</q>一位资深陪跑员这样说。动作要小，拉得太猛反而会让人失去平衡。</dd></div>
+        <div><dt>路面</dt><dd>碎石、减速带、井盖，先用一句话说清楚，再一起慢慢过去。</dd></div>
+        <div><dt>节奏</dt><dd>陪跑绳突然绷紧，说明你们步调不一致了。该调整的是你，<span class="nb">节奏跟着跑者</span>。</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section who" aria-labelledby="who-title">
+    <div class="wrap">
+      <h2 class="label" id="who-title">谁可以当陪跑员</h2>
+      <p class="who-text"><span>你不用是专业运动员。会跑步，能<span class="nb">准时到</span>，在 App 里学完两门必修课（大约 <span class="nb">18 分钟</span>），就可以开始陪跑。</span></p>
+    </div>
+  </section>
+
+  <section class="section alt" id="before" aria-labelledby="before-title">
+    <div class="wrap reveal">
+      <h2 class="section-title" id="before-title">接单之前，我们会先确认你是谁。</h2>
+      <ul class="gate-list" role="list">
+        <li><h3>实名认证</h3><p>填身份证姓名和号码，再对着手机眨眼、点头，完成活体检测。</p></li>
+        <li><h3>人工审核</h3><p>上传证件，工作人员审核通过后才能接单。</p></li>
+        <li><h3>必修培训</h3><p>两门必修课：「陪跑基础」和「突发情况处置」，图文课加情景选择题。</p></li>
+        <li><h3>打开接单</h3><p>附近有人约跑时，App 会同时邀请三位陪跑员，谁先接就是谁。</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="safety" aria-labelledby="safety-title">
+    <div class="wrap reveal">
+      <h2 class="section-title" id="safety-title">跑的时候，不只有你们两个人。</h2>
+      <dl class="rows">
+        <div><dt>走散提醒</dt><dd>两人距离超过 100 米，两边手机都会提醒，客服同时收到通知。</dd></div>
+        <div><dt>一键求助</dt><dd>跑者一键求助后，短信会发给事先设好的紧急联系人。陪跑员不能撤销这条求助。</dd></div>
+        <div><dt>号码</dt><dd>接单以后才看得到对方的完整手机号，跑完就看不到了。</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section alt" id="events" aria-labelledby="events-title">
+    <div class="wrap reveal">
+      <h2 class="section-title" id="events-title">各地的陪跑培训</h2>
+      <p class="section-lede">和校友会、田径协会、盲人协会一起，在各地带新陪跑员上路。</p>
+      <ul class="event-grid" role="list">
+        <li><figure><img src="assets/img/events/01.jpg" width="800" height="523" loading="lazy" decoding="async" alt="南开北京校友会助盲跑公益培训的合影，几十位学员举着结业证书站在横幅后面"><figcaption>南开北京校友会 · 助盲跑公益培训</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/02.jpg" width="800" height="450" loading="lazy" decoding="async" alt="长春市助盲跑志愿者公益培训在室内田径场的合影，前排拉着长春市田径协会的横幅"><figcaption>长春 · 长春市田径协会助盲跑志愿者公益培训</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/03.jpg" width="800" height="600" loading="lazy" decoding="async" alt="世纪公园台阶前的合影，学员穿着荧光黄和粉色运动衫，拉着助盲跑志愿者公益培训横幅"><figcaption>世纪公园 · 助盲跑志愿者公益培训</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/04.jpg" width="800" height="450" loading="lazy" decoding="async" alt="公园广场上的合影，学员们举着证书，前排蹲坐"><figcaption>培训结束后的合影</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/05.jpg" width="800" height="533" loading="lazy" decoding="async" alt="室内书架前的合影，学员举着证书，横幅写着青年入乡同心伴跑，一束光点亮新昌"><figcaption>新昌 · 青年入乡同心伴跑</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/06.jpg" width="800" height="533" loading="lazy" decoding="async" alt="咸阳古城门前的合影，学员穿红色上衣，举着彩旗和热烈欢迎一束光助盲跑的横幅"><figcaption>咸阳湖畔 · 一束光助盲跑</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/07.jpg" width="621" height="461" loading="lazy" decoding="async" alt="乌鲁木齐街边的合影，横幅写着新疆盲人协会乌鲁木齐助盲跑志愿者培训圆满成功"><figcaption>乌鲁木齐 · 新疆盲人协会助盲跑志愿者培训</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/08.jpg" width="588" height="392" loading="lazy" decoding="async" alt="十几位穿紫色上衣的跑者举着 Northwestern Kellogg 的旗子合影"><figcaption>Northwestern Kellogg</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/09.jpg" width="597" height="448" loading="lazy" decoding="async" alt="操场上的合影，后排举着手写的标语牌，前排拉着寻光 Run To Light 的横幅"><figcaption>寻光 Run To Light</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/10.jpg" width="748" height="422" loading="lazy" decoding="async" alt="林间建筑前的合影，横幅写着心光同行助盲融合跑暨应急救护培训"><figcaption>「心光同行」助盲融合跑暨应急救护培训</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/11.jpg" width="627" height="353" loading="lazy" decoding="async" alt="红色屋檐下的大合影，横幅写着心的世界新的你，天目助盲跑公益活动常州站"><figcaption>常州站 · 天目助盲跑公益活动</figcaption></figure></li>
+        <li><figure><img src="assets/img/events/12.jpg" width="591" height="394" loading="lazy" decoding="async" alt="室内会场的合影，横幅写着中欧戈友会助盲跑项目启动仪式"><figcaption>中欧戈友会 · 助盲跑项目启动仪式</figcaption></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-label="关于我们与联系方式">
+    <div class="wrap about-contact reveal">
+      <div id="about">
+        <h2 class="section-title">关于我们</h2>
+        <p>{{公司全称}}成立于{{成立年份}}年。{{一到两句：公司做什么、为什么做助盲跑}}</p>
+        <!-- 有团队或活动照片后放在这里；没有照片时不放任何占位框 -->
+      </div>
+      <div id="contact">
+        <h2 class="section-title">联系我们</h2>
+        <dl class="contact-list">
+          <dt>邮箱</dt>
+          <dd><a href="mailto:{{公司邮箱}}">{{公司邮箱}}</a><button class="copy-btn" type="button" data-copy="{{公司邮箱}}" aria-label="复制邮箱地址" hidden>复制</button><span class="copy-status" id="copy-status" role="status" aria-live="polite"></span></dd>
+          <dt>电话</dt>
+          <dd><a href="tel:{{电话}}">{{电话}}</a></dd>
+          <dt>地址</dt>
+          <dd>{{地址}}</dd>
+        </dl>
+        <p class="note">视障跑者和家属遇到问题，也请写信给我们，或先看<a href="support.html">技术支持</a>页的常见问题。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav aria-label="法律与支持">
+      <ul role="list">
+        <li><a href="privacy-policy.html">隐私政策</a></li>
+        <li><a href="user-agreement.html">用户协议</a></li>
+        <li><a href="support.html">技术支持</a></li>
+      </ul>
+    </nav>
+    <p>© {{年份}} {{公司全称}}</p>
+    <!-- ICP 备案号下来后在这里加一行备案号，链接到 https://beian.miit.gov.cn/ -->
+  </div>
+</footer>
 </body>
 </html>
