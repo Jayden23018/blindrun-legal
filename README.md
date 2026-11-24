@@ -1,6 +1,7 @@
-# 助盲跑 · 法律文本
+# 助盲跑 · 官网与法律文本
 
-这里只放**构建产物**（两个单文件 HTML），通过 GitHub Pages 对外提供：
+本仓库通过 GitHub Pages 对外提供四个页面：官网首页 `index.html`、技术支持 `support.html`，
+以及两份法律文本的**构建产物**：
 
 - 隐私政策：https://jayden23018.github.io/blindrun-legal/privacy-policy.html
 - 用户协议：https://jayden23018.github.io/blindrun-legal/user-agreement.html
@@ -22,6 +23,19 @@ URL 由生产的 JVM 参数注入：
     -Dapp.legal.user-agreement-url=https://jayden23018.github.io/blindrun-legal/user-agreement.html
 
 备案落地、换成自有域名时，只改这两个参数，不用发新版 App。
+
+## 官网怎么改
+
+官网是手写的静态页，没有构建步骤：`index.html` + `assets/site.css` + `assets/site.js` + `assets/img/`。
+设计依据和每句文案的事实来源在后端仓库 `docs/SPEC-official-website.md`。
+
+- **改完先跑门禁**：本地预览用 `python3 scripts/check-site.py --preview`，占位符只列出不报错，其余照常报错。查什么见下一节。
+- **公司信息到齐前不要合进 `main`**：带占位符合进去，门禁会挡住部署、线上保持上一版，但 `main` 会一直是红的。
+- **动效默认关着**：`site.css` 里默认样式就是动画最后一帧，动画只写在文件末尾的 `@supports (animation-timeline: view())` 块里。
+  现在只有「谁可以当陪跑员」的逐字点亮和各区块淡入；首屏下的「牵引绳」滚动动效 2026-10-19 拿掉了（负责人决定先不要）。
+  不支持的浏览器、系统开了「减弱动态效果」，看到的都是完整的静态页。改动画别动默认样式。
+- **跑者和牵引绳图形** `assets/img/duo.svg` 是从 App 图标（`blind-run-ios` 的 `AppIcon-1024.png`）用 potrace 描出来的矢量路径，换图标时跟着换。
+- `support.html` 的路径不能改：它填在 App Store Connect 的「技术支持网址」里。
 
 ## 发布流程（门禁不过就不上线）
 
